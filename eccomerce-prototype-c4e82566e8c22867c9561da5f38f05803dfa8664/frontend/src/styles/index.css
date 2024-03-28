@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --text-color-white: #fff;
+  --green-strength: #374e0b;
+  --green-light: #5a7813;
+  --blue-strength: #4d6a92;
+  --blue-light: #348db8;
+  --yellow-strength: #f1c388;
+}
+
+body {
+  background-color: #000;
+  overflow-x: hidden;
+}
+
+/* INÍCIO HEADER */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--green-strength);
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 125px;
+  width: 100%;
+}
+
+.logo-folha-rainha {
+  margin-top: 25px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.material-symbols-outlined {
+  margin: 0.2rem;
+  color: var(--yellow-strength);
+}
+
+.search-container > .search-input {
+  min-width: 300px;
+  max-width: 500px;
+  height: 30px;
+  padding: 0.5rem;
+  border-radius: 15px;
+  border: 2px solid var(--yellow-strength);
+}
+
+.header-sections {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2rem;
+  color: var(--text-color-white);
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--green-light);
+  border: 1px solid var(--yellow-strength);
+  width: 100%;
+}
+
+nav > ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+nav > ul > li.categorias {
+  margin: 1rem 1.5rem;
+}
+
+nav > ul > li.categorias > a {
+  text-decoration: none;
+  color: var(--text-color-white);
+  /* text-shadow: 1px 1px 1px var(--yellow-strength); */
+  font-size: 1.2rem;
+}
+
+/* FIM HEADER */
+
+/* INÍCIO MAIN */
+
+/* main {
+
+} */
+
+/* carrosel de imagens */
+
+.container-destaques {
+  width: 100%;
+  height: 400px;
+  background-color: white;
+}
+
+.container-destaques > img {
+  width: 100%;
+  height: 400px;
+  background-color: red;
+  object-fit: cover;
+}

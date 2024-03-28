@@ -1,0 +1,76 @@
+import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+import initializeFirebaseAuth from "../../firebaseConnection.js";
+
+import newUser from "./newUser.js";
+import showErrorsByMiddlewaresInBackEnd from "../showErrors/backendErrors.js";
+import verifyPasswordRequirements from "../verifyMiddlewares/passwordRequirements.js";
+
+const buttonRegister = document.querySelector(".button-register");
+
+const form = document.querySelector("form");
+
+async function handleRegisterNewUser(event) {
+  event.preventDefault();
+
+  //Salvando senha de forma diferente, porque ela não irá ao banco de dados.
+  const senha = form.senha.value;
+  const response = verifyPasswordRequirements(senha);
+  if (response == "A senha é válida.") {
+    //Caso a senha seja válida, vamos registrar o usuário
+    //Dados recebidos do usuário
+    const dataUser = {
+      email: form.email.value,
+      nomeCompleto: form.nome_completo.value,
+      cpf: form.cpf.value,
+      celular: form.celular.value,
+      genero: form.sexo.value,
+      dataNascimento: form.nascimento.value,
+      cep: form.cep.value,
+      endereco: form.endereco.value,
+      numeroEndereco: form.numero_endereco.value,
+      complemento: form.complemento.value,
+      referencia: form.referencia.value,
+      cidade: form.cidade.value,
+      estado: form.estado.value,
+    };
+
+    //Enviando dados para o Back-End > Banco De Dados
+    const auth = await initializeFirebaseAuth();
+    createUserWithEmailAndPassword(auth, dataUser.email, senha)
+      .then((userCredential) => {
+        const uid = userCredential.user.uid;
+        newUser(uid, { ...dataUser });
+        console.log({ ...dataUser });
+
+        cleanFieldsOfForm();
+        auth.onAuthStateChanged(async (user) => {
+          if (user) {
+            alert("User has been authenticated with sucess");
+
+            window.location.href = "home.html";
+          }
+        });
+      })
+      .catch((error) => {
+        console.error("Erro ao cadastrar: ", error);
+        showErrorsByMiddlewaresInBackEnd(error);
+      });
+  }
+}
+
+buttonRegister.addEventListener("click", handleRegisterNewUser);
+
+const cleanFieldsOfForm = () => {
+  form.email.value = "";
+  form.senha.value = "";
+  form.nome_completo.value = "";
+  form.cpf.value = "";
+  form.celular.value = "";
+  form.nascimento.value = "";
+  form.cep.value = "";
+  form.endereco.value = "";
+  form.numero_endereco.value = "";
+  form.complemento.value = "";
+  form.referencia.value = "";
+  form.cidade.value = "";
+};
