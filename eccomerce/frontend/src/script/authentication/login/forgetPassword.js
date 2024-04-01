@@ -10,7 +10,7 @@ const requestNewPasswordWithEmail = async () => {
   const auth = await initializeFirebaseAuth();
   sendPasswordResetEmail(auth, email)
     .then(() => {
-      alert("Password reset email sent!");
+      alert("O email de redefinição de senha foi enviado para: " + email);
     })
     .catch((error) => {
       console.error(error.code + " " + error.message);

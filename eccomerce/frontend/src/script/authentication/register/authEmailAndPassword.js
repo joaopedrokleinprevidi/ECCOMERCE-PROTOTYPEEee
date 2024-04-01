@@ -47,7 +47,7 @@ async function handleRegisterNewUser(event) {
           if (user) {
             alert("User has been authenticated with sucess");
 
-            window.location.href = "home.html";
+            window.location.href = "index.html";
           }
         });
       })

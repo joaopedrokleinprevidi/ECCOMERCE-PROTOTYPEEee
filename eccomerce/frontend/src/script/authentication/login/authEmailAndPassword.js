@@ -9,20 +9,19 @@ const buttonLogin = document.querySelector(".button-login");
 const emailUser = document.querySelector("#emailInput");
 const passwordUser = document.querySelector("#passwordInput");
 
-function handleLoginExistentUser(e) {
+async function handleLoginExistentUser(e) {
   e.preventDefault();
   const email = emailUser.value;
   const senha = passwordUser.value;
 
-  const auth = initializeFirebaseAuth();
+  const auth = await initializeFirebaseAuth();
   signInWithEmailAndPassword(auth, email, senha)
     .then(async (userCredential) => {
       console.log("login data: ", userCredential.user);
       await verifyIfUserIsAuth();
 
       alert("Usuário logado");
-      window.location.href = "home.html";
-      // isLogged();
+      window.location.href = "index.html";
     })
 
     .catch((error) => {
@@ -32,16 +31,4 @@ function handleLoginExistentUser(e) {
       console.error("Erro ao logar: ", error);
     });
 }
-
-// const isLogged = async () => {
-//   const auth = initializeFirebaseAuth();
-//   auth.onAuthStateChanged(async (user) => {
-//     if (user) {
-//       alert("User has been authenticated with sucess");
-
-//       window.location.href = "home.html";
-//     }
-//   });
-// };
-
 buttonLogin.addEventListener("click", handleLoginExistentUser);

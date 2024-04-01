@@ -4,7 +4,7 @@ const usersControllers = require("./src/controllers/usersControllers.js");
 // const inputsMiddlewares = require("./src/middlewares/inputsMiddlewares.js");
 const authMiddlewares = require("./src/middlewares/authMiddlewares.js");
 
-router.get("/users", authMiddlewares.verifyUser, usersControllers.getAllUsers);
+// router.get("/users", authMiddlewares.verifyUser, usersControllers.getAllUsers);
 
 router.get(
   "/users/editProfile/:uid",

@@ -10,8 +10,18 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Importação de icone: Lupa -->
 
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/signin.css">
+    <link rel="stylesheet" href="../styles/header.css"> <!-- Estilização do Cabeçalho -->
+    <link rel="stylesheet" href="../styles/signin.css"> <!-- Estilização do Login -->
+
+    <!-- Importação de Firebase e scripts para autenticação -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js" defer></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js" defer></script>
+    <script type="module" src="../script/authentication/login/authEmailAndPassword.js" defer></script>
+    <script type="module" src="../script/firebaseConnection.js" defer></script>
+    <script type="module" src="../script/authentication/showErrors/firebaseErrors.js" defer></script>
+    <script type="module" src="../script/authentication/login/forgetPassword.js" defer></script>
+    <script type="module" src="../script/authentication/login/signOut.js" defer></script>
+
 
     <script src="../script/animation-index/header.js" defer></script>
     <title>Prototype Eccomerce</title>
@@ -37,11 +47,12 @@
                 </span>
                 <p id="accountHeader">Conta</p>
                 <div class="container-account-options">
-                    <ul>
+                    <ul id="accountOptions">
                         <li><span class="material-symbols-outlined">person</span><a href="#">Entre ou cadastre-se</a>
                         </li>
                         <li><span class="material-symbols-outlined">article</span><a href="#">Meus pedidos</a></li>
-                        <li><span class="material-symbols-outlined">logout</span><a href="#">Sair</a></li>
+                        <li><span class="material-symbols-outlined">logout</span><a href="#"
+                                class="button-logout">Sair</a></li>
                     </ul>
                 </div>
             </div>

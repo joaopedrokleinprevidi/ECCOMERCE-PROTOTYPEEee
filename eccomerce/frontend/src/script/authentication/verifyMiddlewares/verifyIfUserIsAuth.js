@@ -3,8 +3,8 @@ import cookies from "../cookies/cookies.js";
 
 //O objetivo desta função é verificar se o usuário está autenticado e pegar o token atual dele.
 //Está função deve ser chamada em todas as rotas necessárias para garantir que o usuário esteja autenticado.
-const verifyIfUserIsAuth = () => {
-  const auth = initializeFirebaseAuth();
+const verifyIfUserIsAuth = async () => {
+  const auth = await initializeFirebaseAuth();
   return new Promise((resolve, reject) => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
@@ -41,7 +41,7 @@ const verifyIfUserIsAuth = () => {
         console.error(
           "Erro ao verificar se o usuário existe em verifyIfUserIsAuth."
         );
-        window.location.href = "login.html";
+        // window.location.href = "signUpOrSignIn.html";
         reject();
       }
     });

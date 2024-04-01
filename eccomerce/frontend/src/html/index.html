@@ -12,7 +12,15 @@
 
     <link rel="stylesheet" href="../styles/header.css">
 
+    <!-- Importação de Animação do Cabeçalho -->
     <script src="../script/animation-index/header.js" defer></script>
+
+    <!-- Importação de Firebase e scripts para autenticação -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js" defer></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js" defer></script>
+    <script type="module" src="../script/firebaseConnection.js" defer></script>
+    <script type="module" src="../script/authentication/showErrors/firebaseErrors.js" defer></script>
+    <script type="module" src="../script/authentication/login/signOut.js" defer></script>
     <title>Prototype Eccomerce</title>
 </head>
 
@@ -36,12 +44,13 @@
                 </span>
                 <p id="accountHeader">Conta</p>
                 <div class="container-account-options">
-                    <ul>
+                    <ul id="accountOptions">
                         <li><span class="material-symbols-outlined">person</span><a href="./signUpOrSignIn.html">Entre
                                 ou cadastre-se</a>
                         </li>
                         <li><span class="material-symbols-outlined">article</span><a href="#">Meus pedidos</a></li>
-                        <li><span class="material-symbols-outlined">logout</span><a href="#">Sair</a></li>
+                        <li><span class="material-symbols-outlined">logout</span><a href="#"
+                                class="button-logout">Sair</a></li>
                     </ul>
                 </div>
             </div>

@@ -1,10 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
-let firebaseConfig;
-
 // Função para inicializar o Firebase Auth
-function initializeFirebaseAuth() {
+async function initializeFirebaseAuth() {
   const firebaseConfig = {
     apiKey: "AIzaSyAHXc8p7UYug-qMEoGb4nacarrvBg52XFo",
     authDomain: "eccomerce-prototype-450c2.firebaseapp.com",
