@@ -11,6 +11,7 @@
     <!-- Importação de icone: Lupa -->
 
     <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/signin.css">
 
     <script src="../script/animation-index/header.js" defer></script>
     <title>Prototype Eccomerce</title>
@@ -37,8 +38,7 @@
                 <p id="accountHeader">Conta</p>
                 <div class="container-account-options">
                     <ul>
-                        <li><span class="material-symbols-outlined">person</span><a href="./signUpOrSignIn.html">Entre
-                                ou cadastre-se</a>
+                        <li><span class="material-symbols-outlined">person</span><a href="#">Entre ou cadastre-se</a>
                         </li>
                         <li><span class="material-symbols-outlined">article</span><a href="#">Meus pedidos</a></li>
                         <li><span class="material-symbols-outlined">logout</span><a href="#">Sair</a></li>
@@ -92,15 +92,54 @@
         </nav>
     </header>
 
-    <!--  header sempre é o mesmo em todas páginas... dps em react fazer isso em componentes -->
 
+
+    <!--  header sempre é o mesmo em todas páginas... dps em react fazer isso em componentes -->
     <main>
 
-        <!-- <section class="container-destaques">
-            <img src="../files/images/destaques/foto01.png" alt="Promoção 01">
-            <img src="../files/images/destaques/foto02.png" alt="Promoção 02">
-            <img src="../files/images/destaques/FOTO03.png" alt="Promoção 03">
-        </section> -->
+        <div class="cabeçalho-identificacao">
+            <h1>Identificação</h1>
+            <span class="material-symbols-outlined">
+                keyboard_double_arrow_down
+            </span>
+            <h2>Faça o seu login ou crie uma conta caso ainda não possua cadastro.</h2>
+        </div>
+
+        <section class="section-auth">
+            <div class="containers-auth">
+                <div class="cabecalho-containers-auth">
+                    <span class="material-symbols-outlined">person</span>
+                    <p>Já sou cadastrado</p>
+                </div>
+                <hr>
+                <div class="content-containers-auth">
+                    <form class="container-login">
+                        <label for="login">Email</label>
+                        <input type="email" name="login" id="emailInput" autocomplete="email">
+                        <label for="password">Senha</label>
+                        <input type="password" name="password" id="passwordInput" autocomplete="current-password">
+                    </form>
+                    <button class="button-forget-password"> <span class="material-symbols-outlined">
+                            lock
+                        </span> Esqueceu a senha?</button>
+                    <button class="btn-auth button-login">Entrar</button>
+                </div>
+            </div>
+            <div class="containers-auth">
+                <div class="cabecalho-containers-auth">
+                    <span class="material-symbols-outlined">
+                        login
+                    </span>
+                    <p>Ainda não possuo cadastro</p>
+                </div>
+                <hr>
+                <div class="content-containers-auth">
+                    <label for="criar-conta">Digite o email que deseja cadastrar:</label>
+                    <input type="email" name="criar-conta">
+                    <button class="btn-auth"><a href="register.html">Prosseguir</a></button>
+                </div>
+            </div>
+        </section>
 
     </main>
 
