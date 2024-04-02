@@ -71,6 +71,7 @@ header {
   position: relative;
 }
 
+/* User, Acount*/
 .container-account-options {
   display: none;
   position: absolute;
@@ -103,6 +104,8 @@ header {
 .container-account-options > ul > li > a:hover {
   text-decoration: underline;
 }
+
+/* Services: SAC */
 
 .container-service-options {
   display: none;
@@ -140,6 +143,25 @@ header {
   width: 24px;
   height: 24px;
 }
+
+/* Carrinho */
+
+.carrinho-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--yellow-strength);
+  width: 23px;
+  height: 23px;
+  font-size: 1.3rem;
+  margin-left: 0.5rem;
+  padding: 0.3rem;
+  border-radius: 50%;
+  color: var(--green-strength);
+}
+
+/* Categorias De Produtos */
 
 nav {
   display: flex;

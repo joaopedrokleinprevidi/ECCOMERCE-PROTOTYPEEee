@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+:root {
+  --text-color-white: #fff;
+  --green-strength: #374e0b;
+  --green-light: #5a7813;
+  --blue-strength: #4d6a92;
+  --blue-light: #348db8;
+  --yellow-strength: #f1c388;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container-signup-cabeçalho {
+  margin: 1rem;
+  color: var(--green-strength);
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.sections {
+  border: 1px solid var(--green-strength);
+  padding: 2.5rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+input,
+select {
+  margin-bottom: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 0.3rem;
+  text-shadow: 1px 1px 1px solid #000;
+}
+
+label {
+  margin-bottom: 0.4rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.section-auth-signup {
+  margin-bottom: 2rem;
+}
+
+/* .section-auth-signup > .email > .material-symbols-outlined,
+.section-auth-signup > .senha > .material-symbols-outlined {
+} */
+
+.cabeçalho-sections {
+  margin-bottom: 2rem;
+}
+
+.cabeçalho-sections > .type-cabeçalho {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.cabeçalho-sections > .type-cabeçalho > p {
+  font-size: 1.3rem;
+  margin-left: 0.3rem;
+}
+
+.container-confirm-signup {
+  padding: 2rem;
+  border: 1px solid var(--blue-light);
+  border-radius: 10px;
+  margin: 1rem;
+}
+
+.container-confirm-signup > button {
+  margin-top: 1rem;
+  padding: 0.3rem;
+  border-radius: 10px;
+  border: 1px solid var(--green-strength);
+  background-color: var(--blue-light);
+  color: white;
+  cursor: pointer;
+  transition: 0.3 ease;
+}
+
+.container-confirm-signup > button:hover {
+  background-color: var(--blue-strength);
+  color: var(--text-color-white);
+  transition: 0.3s ease;
+}

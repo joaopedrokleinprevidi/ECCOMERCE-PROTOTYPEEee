@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar</title>
+
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Importação de icone: Lupa -->
+
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/signup.css">
+
+    <!-- Importação de Animação do Cabeçalho -->
+    <script src="../script/animation-index/header.js" defer></script>
+
+    <!-- Importação de Firebase e scripts para autenticação -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js" defer></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js" defer></script>
+    <script type="module" src="../script/firebaseConnection.js" defer></script>
+    <script type="module" src="../script/authentication/showErrors/firebaseErrors.js" defer></script>
+    <script type="module" src="../script/authentication/login/signOut.js" defer></script>
+
+    <script type="module" src="../script/authentication/register/authEmailAndPassword.js" defer></script>
+    <script type="module" src="../script/authentication/showErrors/backendErrors.js" defer></script>
+</head>
+
+<body>
+    <header>
+
+        <div class="container-header">
+            <a href="./index.html">
+                <img src="../files/images/logo_folha_rainha_fundo_branco.png" class="logo-folha-rainha"
+                    alt="Logo da loja Folha Rainha">
+            </a>
+            <div class="header-sections search-container">
+                <input type="text" name="search" class="search-input" placeholder="Digite oque você busca">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+            </div>
+            <div class="header-sections">
+                <span class="material-symbols-outlined">
+                    shield_person
+                </span>
+                <p id="accountHeader">Conta</p>
+                <div class="container-account-options">
+                    <ul id="accountOptions">
+                        <li><span class="material-symbols-outlined">login</span><a href="./signUpOrSignIn.html">Entre
+                                ou cadastre-se</a>
+                        </li>
+                        <li><span class="material-symbols-outlined">account_circle</span><a href="#">Minha conta</a>
+                        </li>
+                        <li><span class="material-symbols-outlined">article</span><a href="#">Meus pedidos</a></li>
+                        <li><span class="material-symbols-outlined">logout</span><a href="#"
+                                class="button-logout">Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="header-sections">
+                <span class="material-symbols-outlined">
+                    call_quality
+                </span>
+                <p id="serviceHeader">Central de Atendimento</p>
+                <div class="container-service-options">
+                    <ul>
+                        <li>
+                            <img src="../files/images/phone-call.png" class="services-icons" alt="Phone Call Icon">
+                            <a href="#"> (54) 99242-3443</a>
+                        </li>
+                        <li>
+                            <img src="../files/images/whatsapp.png" class="services-icons" alt="WhatsApp Icon">
+                            <a href="#">(54) 99242-3443</a>
+                        </li>
+                        <li>
+                            <img src="../files/images/mail.png" class="services-icons" alt="Email Icon"> <a
+                                href="mailto:lojafolharainha@gmail.com">lojafolharainha@gmail.com</a>
+                        </li>
+                        <li>
+                            <img src="../files/images/instagram.png" class="services-icons" alt="Instagram Icon">
+                            <a href="#">@lojafolharainha</a>
+                        </li>
+                        <li>
+                            <img src="../files/images/facebook.png" class="services-icons" alt="Facebook Icon">
+                            <a href="#">lojafolharainha</a>
+                        </li>
+                        <li>
+                            <img src="../files/images/tik-tok.png" class="services-icons" alt="TikTok Icon"><a
+                                href="#">@lojafolharainha</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="header-sections">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                <p>Carrinho</p>
+                <p id="cartValue" class="carrinho-value">10</p>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li class="categorias"><a href="#">Camisetas</a></li>
+                <li class="categorias"><a href="#">Canecas</a></li>
+                <li class="categorias"><a href="#">Squeezes</a></li>
+                <li class="categorias"><a href="#">Porta-Guias</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container-signup-cabeçalho">
+            <h1 class="h1-login">Cadastrar nova conta</h1>
+            <p class="p-login">Crie sua conta e aproveite todos os nossos benefícios.</p>
+
+        </div>
+        <form class="form-signup flex-column">
+
+            <section class="section-auth-signup sections">
+                <div class="cabeçalho-auth-signup cabeçalho-sections">
+                    <div class="acess-data type-cabeçalho">
+                        <span class="material-symbols-outlined">person</span>
+                        <p>Dados para acesso</p>
+                    </div>
+                    <hr>
+                </div>
+                <div class="email">
+                    <span class="material-symbols-outlined">
+                        mail
+                    </span>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="emailInput" autocomplete="email">
+                    <label for="confirmEmail">Confirmar email</label>
+                    <input type="email" name="confirmEmail" id="confirmEmailInput">
+                </div>
+
+                <div class="senha">
+                    <span class="material-symbols-outlined">
+                        lock
+                    </span>
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" id="passwordInput" autocomplete="current-password">
+                    <label for="confirmPassword">Confirmar senha</label>
+                    <input type="password" name="confirmPassword" id="confirmPasswordInput"
+                        autocomplete="current-password">
+                </div>
+            </section>
+
+
+            <section class="section-personal-signup flex-column sections">
+                <div class="cabeçalho-personal-signup cabeçalho-sections">
+                    <div class="personal-data type-cabeçalho">
+                        <span class="material-symbols-outlined">lock</span>
+                        <p>Dados pessoais</p>
+                    </div>
+                    <hr>
+                </div>
+                <div>
+                    <label for="nome_completo">Nome completo</label>
+                    <input type="text" name="nome_completo">
+                </div>
+                <div>
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf">
+                </div>
+                <div>
+                    <label for="celular">Celular</label>
+                    <input type="tel" name="celular" id="">
+                </div>
+                <div>
+                    <label for="sexo">Gênero</label>
+                    <select name="sexo">
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Preferiu não declarar">Prefiro não declarar</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="nascimento">Data de nascimento</label>
+                    <input type="date" name="nascimento">
+                </div>
+            </section>
+
+            <section class="section-address-signup flex-column sections">
+                <div class="cabeçalho-address-signup cabeçalho-sections">
+                    <div class="address  type-cabeçalho">
+                        <span class="material-symbols-outlined">location_on</span>
+                        <p>Endereço</p>
+                    </div>
+                    <hr>
+                </div>
+                <div>
+                    <label for="cep">Cep </label>
+                    <input type="text" name="cep">
+                </div>
+                <div>
+                    <label for="endereco">Endereço</label>
+                    <input type="text" name="endereco" placeholder="Rua YYY, Bairro XXX">
+                </div>
+                <div>
+                    <label for="numero_endereco">Numero do Endereço</label>
+                    <input type="number" name="numero_endereco" placeholder="882">
+                </div>
+                <div>
+                    <label for="complemento">Complemento</label>
+                    <input type="text" name="complemento" placeholder="Descendo a escadaria">
+                </div>
+                <div>
+                    <label for="referencia">Referência</label>
+                    <input type="text" name="referencia" placeholder="Na frente da padaria">
+                </div>
+                <div>
+                    <label for="cidade">Cidade</label>
+                    <input type="text" name="cidade">
+                </div>
+                <div>
+                    <label for="estado">Estado</label>
+                    <select name="estado">
+                        <option value="Acre">Acre</option>
+                        <option value="Alagoas">Alagoas</option>
+                        <option value="Amapá">Amapá</option>
+                        <option value="Amazonas">Amazonas</option>
+                        <option value="Bahia">Bahia</option>
+                        <option value="Ceará">Ceará</option>
+                        <option value="Espírito Santo">Espírito Santo</option>
+                        <option value="Goiás">Goiás</option>
+                        <option value="Maranhão">Maranhão</option>
+                        <option value="Mato Grosso">Mato Grosso</option>
+                        <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                        <option value="Minas Gerais">Minas Gerais</option>
+                        <option value="Pará">Pará</option>
+                        <option value="Paraíba">Paraíba</option>
+                        <option value="Paraná">Paraná</option>
+                        <option value="Pernambuco">Pernambuco</option>
+                        <option value="Piauí">Piauí</option>
+                        <option value="Rio de Janeiro">Rio de Janeiro</option>
+                        <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                        <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                        <option value="Rondônia">Rondônia</option>
+                        <option value="Roraima">Roraima</option>
+                        <option value="Santa Catarina">Santa Catarina</option>
+                        <option value="São Paulo">São Paulo</option>
+                        <option value="Sergipe">Sergipe</option>
+                        <option value="Tocantins">Tocantins</option>
+                    </select>
+                </div>
+            </section>
+        </form>
+
+        <div class="container-confirm-signup flex-column">
+
+            <div class="accept-terms">
+                <input type="radio" name="termos">
+                <label for="termos">Li e aceito a <a href="">Política de Privacidade</a> do Grupo Folha Rainha.</label>
+            </div>
+
+            <button class="button-register">Cadastre-se</button>
+
+        </div>
+
+    </main>
+</body>
+
+</html>

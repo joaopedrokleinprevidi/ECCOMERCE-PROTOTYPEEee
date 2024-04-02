@@ -34,8 +34,6 @@ main {
   margin: 1rem;
   padding: 0rem 1rem 1rem 1rem;
   color: var(--green-strength);
-  background-color: var(--yellow-strength);
-  border: 1px solid var(--green-strength);
   border-radius: 20px;
 }
 
@@ -169,4 +167,8 @@ form {
   color: white;
   border: 1px solid white;
   transition: 0.3s ease;
+}
+
+.containers-auth > .content-containers-auth > button > a:hover {
+  color: white;
 }
