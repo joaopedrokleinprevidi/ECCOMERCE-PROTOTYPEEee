@@ -22,8 +22,28 @@ main {
 }
 
 .container-signup-cabeçalho {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
   color: var(--green-strength);
+  background-color: white;
+}
+
+.container-signup-cabeçalho > .material-symbols-outlined {
+  color: var(--green-strength);
+}
+
+.container-signup-cabeçalho > h1 {
+  margin: 1.5rem;
+}
+
+.container-signup-cabeçalho > h2 {
+  font-size: 1rem;
+  margin: 0.2rem;
 }
 
 .flex-column {
@@ -32,10 +52,12 @@ main {
 }
 
 .sections {
-  border: 1px solid var(--green-strength);
   padding: 2.5rem;
   border-radius: 10px;
+  border: 2px solid var(--blue-strength);
   margin-bottom: 1rem;
+  background-color: var(--green-light);
+  transition: 0.3s ease;
 }
 
 input,
@@ -43,7 +65,10 @@ select {
   margin-bottom: 1rem;
   margin-right: 0.5rem;
   border-radius: 0.3rem;
+  border: 1px solid var(--green-strength);
+  padding: 0.3rem;
   text-shadow: 1px 1px 1px solid #000;
+  transition: 0.3s ease;
 }
 
 label {
@@ -80,6 +105,7 @@ label {
   border: 1px solid var(--blue-light);
   border-radius: 10px;
   margin: 1rem;
+  background-color: white;
 }
 
 .container-confirm-signup > button {
@@ -96,5 +122,18 @@ label {
 .container-confirm-signup > button:hover {
   background-color: var(--blue-strength);
   color: var(--text-color-white);
+  transition: 0.3s ease;
+}
+
+/* hovers */
+
+.sections:hover {
+  background-color: #638415;
+  transition: 0.3s ease;
+}
+
+input:hover,
+select:hover {
+  background-color: #ececec;
   transition: 0.3s ease;
 }

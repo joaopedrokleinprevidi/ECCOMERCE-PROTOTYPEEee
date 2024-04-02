@@ -15,7 +15,7 @@ app.use(limiter);
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://127.0.0.1:5501"], // Defina o domínio do seu site aqui, será o único que pode acessar sua API.
+    origin: ["http://127.0.0.1:5500"], // Defina o domínio do seu site aqui, será o único que pode acessar sua API.
     methods: ["GET", "POST", "DELETE", "PUT"], // Métodos permitidos ao mecher nessa API
     allowedHeaders: ["Content-Type", "Authorization", "uid"], // Cabeçalhos permitidos
     credentials: false, // Habilita o envio de cookies de origens cruzadas(diferentes)

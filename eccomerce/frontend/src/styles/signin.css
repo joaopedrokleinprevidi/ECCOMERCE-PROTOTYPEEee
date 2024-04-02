@@ -32,8 +32,9 @@ main {
   justify-content: center;
   flex-direction: column;
   margin: 1rem;
-  padding: 0rem 1rem 1rem 1rem;
+  padding: 1rem;
   color: var(--green-strength);
+  background-color: white;
   border-radius: 20px;
 }
 

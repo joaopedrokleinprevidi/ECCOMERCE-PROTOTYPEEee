@@ -18,6 +18,13 @@ body {
   overflow-x: hidden;
 }
 
+main {
+  background-image: url("../files/images/background/folhas_14.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
 /* INÍCIO HEADER */
 
 header {
