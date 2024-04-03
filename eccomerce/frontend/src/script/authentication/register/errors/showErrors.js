@@ -29,9 +29,9 @@ function createAndAppendErrorMessage(container, errorMessage) {
 
     container.append(containerError);
 
-    // setTimeout(() => {
-    //   containerError.remove();
-    // }, 7000);
+    setTimeout(() => {
+      containerError.remove();
+    }, 7000);
   }
 }
 
@@ -181,8 +181,24 @@ const errorsOfAddressData = (responseVerifyAddressData) => {
   }
 };
 
+const errorsOfAcceptTerms = (responseVerifyAcceptTerms) => {
+  const containerAcceptTerms = document.querySelector(".accept-terms");
+  if (
+    responseVerifyAcceptTerms.includes(
+      "Aceitar os termos de privacidade é obrigatório"
+    )
+  ) {
+    createAndAppendErrorMessage(
+      containerAcceptTerms,
+      "Aceitar os termos de privacidade é obrigatório"
+    );
+    moveScrollBarToError(containerAcceptTerms);
+  }
+};
+
 export default {
   errorsOfAcessData,
   errorsOfPersonalData,
   errorsOfAddressData,
+  errorsOfAcceptTerms,
 };

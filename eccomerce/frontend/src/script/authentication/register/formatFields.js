@@ -21,17 +21,3 @@ function formatTelefone() {
   telefone = telefone.replace(/(\d{5})(\d)/, "$1-$2"); // Insere o hífen após os próximos 5 dígitos
   telefoneInput.value = telefone;
 }
-
-const cepInput = document.querySelector("#cepInput");
-
-cepInput.addEventListener("input", formatCEP);
-
-function formatCEP() {
-  let cep = cepInput.value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
-
-  if (cep.length > 5) {
-    cep = cep.slice(0, 5) + "-" + cep.slice(5);
-  }
-
-  cepInput.value = cep;
-}

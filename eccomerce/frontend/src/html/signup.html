@@ -147,29 +147,33 @@
                     <hr>
                 </div>
                 <div class="email">
-                    <div>
-                        <span class="material-symbols-outlined">
-                            mail
-                        </span>
+                    <div class="container-email">
+                        <div>
+                            <span class="material-symbols-outlined">
+                                mail
+                            </span>
+                        </div>
+                        <label for="email">Email</label>
+                        <input class="inputs-style" placeholder="exemplo@gmail.com" type="email" name="email"
+                            id="emailInput" autocomplete="email">
+                        <label for="confirmEmail">Confirmar email</label>
+                        <input class="inputs-style" placeholder="exemplo@gmail.com" type="email" name="confirmEmail"
+                            id="confirmEmailInput">
                     </div>
-                    <label for="email">Email</label>
-                    <input class="inputs-style" placeholder="exemplo@gmail.com" type="email" name="email"
-                        id="emailInput" autocomplete="email">
-                    <label for="confirmEmail">Confirmar email</label>
-                    <input class="inputs-style" placeholder="exemplo@gmail.com" type="email" name="confirmEmail"
-                        id="confirmEmailInput">
                 </div>
 
                 <div class="senha">
-                    <span class="material-symbols-outlined">
-                        lock
-                    </span>
-                    <label for="senha">Senha</label>
-                    <input class="inputs-style" type="password" name="senha" id="passwordInput"
-                        autocomplete="current-password">
-                    <label for="confirmPassword">Confirmar senha</label>
-                    <input class="inputs-style" type="password" name="confirmPassword" id="confirmPasswordInput"
-                        autocomplete="current-password">
+                    <div class="container-senha">
+                        <span class="material-symbols-outlined">
+                            lock
+                        </span>
+                        <label for="senha">Senha</label>
+                        <input class="inputs-style" type="password" name="senha" id="passwordInput"
+                            autocomplete="current-password">
+                        <label for="confirmPassword">Confirmar senha</label>
+                        <input class="inputs-style" type="password" name="confirmPassword" id="confirmPasswordInput"
+                            autocomplete="current-password">
+                    </div>
                 </div>
             </section>
 
@@ -220,7 +224,8 @@
                 </div>
                 <div class="container-inputs-address-signup cep">
                     <label for="cep">Cep </label>
-                    <input class="inputs-style" type="number" id="cepInput" name="cep" max-length="9">
+                    <input class="inputs-style" type="text" id="cepInput" name="cep" maxlength="9"
+                        placeholder="12345-678">
                 </div>
                 <div class="container-inputs-address-signup endereco">
                     <label for="endereco">Endereço</label>
@@ -279,7 +284,7 @@
         <div class="container-confirm-signup flex-column">
 
             <div class="accept-terms">
-                <input type="radio" name="termos">
+                <input type="checkbox" name="termos" id="acceptTerms">
                 <label for="termos">Li e aceito a <a href="">Política de Privacidade</a> do Grupo Folha Rainha.</label>
             </div>
 

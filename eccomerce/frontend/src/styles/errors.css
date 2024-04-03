@@ -10,12 +10,12 @@
 .container-error {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   grid-column: 3;
   padding: 0.2rem;
   margin: 0.2rem;
   border-radius: 10px;
-  max-width: 45%;
+  max-width: 100%;
   /* border: 1px solid red; */
   /* background-color: var(--blue-strength); */
 }

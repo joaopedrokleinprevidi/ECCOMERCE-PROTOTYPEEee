@@ -60,8 +60,19 @@ const verifyAddressData = (addressData) => {
     return errorMessage;
   }
 };
+
+const verifyAcceptTerms = (acceptTerms) => {
+  let errorMessage = "";
+  if (acceptTerms.checked) {
+    return true;
+  } else {
+    errorMessage += "Aceitar os termos de privacidade é obrigatório.";
+    return errorMessage;
+  }
+};
 export default {
   verifyAcessData,
   verifyPersonalData,
   verifyAddressData,
+  verifyAcceptTerms,
 };

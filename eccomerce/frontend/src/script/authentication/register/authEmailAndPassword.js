@@ -64,11 +64,20 @@ function verifyFieldsOfRegister(event) {
     showErrors.errorsOfAddressData(responseVerifyAddressData);
   }
 
+  //Verificar se o usuário aceitou as políticas de privacidade da loja
+  const acceptTerms = document.querySelector("#acceptTerms");
+  const responseVerifyAcceptTerms = verifyFields.verifyAcceptTerms(acceptTerms);
+
+  if (responseVerifyAcceptTerms !== true) {
+    showErrors.errorsOfAcceptTerms(responseVerifyAcceptTerms);
+  }
+
   //Se não ocorrer nenhum erro, ou seja: se todos os campos estiverem preenchidos corretamente: Cadastra o usuário.
   if (
     responseVerifyAcessData === true &&
     responseVerifyPersonalData === true &&
-    responseVerifyAddressData === true
+    responseVerifyAddressData === true &&
+    responseVerifyAcceptTerms === true
   ) {
     handleRegisterNewUser(accessData, personalData, addressData);
   }
@@ -113,7 +122,7 @@ async function handleRegisterNewUser(accessData, personalData, addressData) {
         if (user) {
           alert("User has been authenticated with sucess");
 
-          // window.location.href = "index.html";
+          window.location.href = "index.html";
         }
       });
     })

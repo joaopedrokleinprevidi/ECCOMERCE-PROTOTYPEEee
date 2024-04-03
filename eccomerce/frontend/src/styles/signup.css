@@ -108,19 +108,26 @@ hr {
 }
 
 /* Containers de labels/inputs do container "Dados para Acesso"*/
-.sections > .senha,
-.email {
+.sections > .senha > .container-senha,
+.sections > .email > .container-email {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.sections > .email > label,
-.sections > .email > input,
-.sections > .senha > label,
-.sections > .senha > input {
+.sections > .senha,
+.sections > .email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sections > .email > .container-email > label,
+.sections > .email > .container-email > input,
+.sections > .senha > .container-senha > label,
+.sections > .senha > .container-senha > input {
   margin-bottom: 0;
-  margin: 0.7rem;
+  margin: 0.5rem;
 }
 
 .sections > .email > input,
