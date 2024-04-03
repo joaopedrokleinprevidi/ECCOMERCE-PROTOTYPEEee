@@ -20,6 +20,9 @@
     <!-- Importação de Animação da Barra de Rolagem -->
     <link rel="stylesheet" href="../styles/barra-de-rolagem.css">
 
+    <!-- Importação para estilização de Erros -->
+    <link rel="stylesheet" href="../styles/errors.css">
+
     <!-- Importação de Firebase e scripts para autenticação -->
     <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js" defer></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js" defer></script>
@@ -28,6 +31,9 @@
     <script type="module" src="../script/authentication/login/signOut.js" defer></script>
 
     <script type="module" src="../script/authentication/register/authEmailAndPassword.js" defer></script>
+    <script type="module" src="../script/authentication/register/errors/verifyData.js" defer></script>
+    <script type="module" src="../script/authentication/register/formatFields.js"></script>
+    <script type="module" src="../script/authentication/register/errors/showErrors.js" defer></script>
     <script type="module" src="../script/authentication/showErrors/backendErrors.js" defer></script>
 </head>
 
@@ -70,6 +76,12 @@
                 <p id="serviceHeader">Central de Atendimento</p>
                 <div class="container-service-options">
                     <ul>
+                        <li><a href="#" style="text-align: center;">Para atendimento ou dúvidas, contate-nos:</a></li>
+                        <li><span class="material-symbols-outlined">
+                                schedule
+                            </span> <a href="#">SAC: Seg à Sex das 9hs às 17hs</a>
+                        </li>
+                        <hr>
                         <li>
                             <img src="../files/images/phone-call.png" class="services-icons" alt="Phone Call Icon">
                             <a href="#"> (54) 99242-3443</a>
@@ -116,11 +128,12 @@
     </header>
     <main>
         <div class="container-signup-cabeçalho">
-            <h1 class="h1-login">Cadastrar nova conta</h1>
+            <h1 class="h1-login">Junte-se a nós! 💚</h1>
             <span class="material-symbols-outlined">
                 keyboard_double_arrow_down
             </span>
-            <h2>Crie sua conta e aproveite todos os nossos benefícios.</h2>
+            <h2>Seja bem-vindo a tua loja de Axé!</h2>
+            <h2>Um salve a luz que vem da Floresta! Okê Arô! 🏹</h2>
 
         </div>
         <form class="form-signup flex-column">
@@ -134,13 +147,17 @@
                     <hr>
                 </div>
                 <div class="email">
-                    <span class="material-symbols-outlined">
-                        mail
-                    </span>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            mail
+                        </span>
+                    </div>
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="emailInput" autocomplete="email">
+                    <input class="inputs-style" placeholder="exemplo@gmail.com" type="email" name="email"
+                        id="emailInput" autocomplete="email">
                     <label for="confirmEmail">Confirmar email</label>
-                    <input type="email" name="confirmEmail" id="confirmEmailInput">
+                    <input class="inputs-style" placeholder="exemplo@gmail.com" type="email" name="confirmEmail"
+                        id="confirmEmailInput">
                 </div>
 
                 <div class="senha">
@@ -148,9 +165,10 @@
                         lock
                     </span>
                     <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="passwordInput" autocomplete="current-password">
+                    <input class="inputs-style" type="password" name="senha" id="passwordInput"
+                        autocomplete="current-password">
                     <label for="confirmPassword">Confirmar senha</label>
-                    <input type="password" name="confirmPassword" id="confirmPasswordInput"
+                    <input class="inputs-style" type="password" name="confirmPassword" id="confirmPasswordInput"
                         autocomplete="current-password">
                 </div>
             </section>
@@ -164,29 +182,31 @@
                     </div>
                     <hr>
                 </div>
-                <div>
+                <div class="container-inputs-personal-signup nome">
                     <label for="nome_completo">Nome completo</label>
-                    <input type="text" name="nome_completo">
+                    <input class="inputs-style" type="text" name="nome_completo">
                 </div>
-                <div>
+                <div class="container-inputs-personal-signup cpf">
                     <label for="cpf">CPF</label>
-                    <input type="text" name="cpf">
+                    <input class="inputs-style cpfInput" type="text" name="cpf" maxlength="14"
+                        placeholder="123.456.789-10">
                 </div>
-                <div>
+                <div class="container-inputs-personal-signup celular">
                     <label for="celular">Celular</label>
-                    <input type="tel" name="celular" id="">
+                    <input class="inputs-style" type="tel" name="celular" id="telefoneInput"
+                        placeholder="(54) 99242-3443" max-length="15">
                 </div>
-                <div>
+                <div class="container-inputs-personal-signup genero">
                     <label for="sexo">Gênero</label>
-                    <select name="sexo">
+                    <select class="inputs-style" name="sexo">
                         <option value="Masculino">Masculino</option>
                         <option value="Feminino">Feminino</option>
                         <option value="Preferiu não declarar">Prefiro não declarar</option>
                     </select>
                 </div>
-                <div>
+                <div class="container-inputs-personal-signup nascimento">
                     <label for="nascimento">Data de nascimento</label>
-                    <input type="date" name="nascimento">
+                    <input class="inputs-style" type="date" name="nascimento" value="2000-01-01">
                 </div>
             </section>
 
@@ -198,33 +218,33 @@
                     </div>
                     <hr>
                 </div>
-                <div>
+                <div class="container-inputs-address-signup cep">
                     <label for="cep">Cep </label>
-                    <input type="text" name="cep">
+                    <input class="inputs-style" type="number" id="cepInput" name="cep" max-length="9">
                 </div>
-                <div>
+                <div class="container-inputs-address-signup endereco">
                     <label for="endereco">Endereço</label>
-                    <input type="text" name="endereco" placeholder="Rua YYY, Bairro XXX">
+                    <input class="inputs-style" type="text" name="endereco" placeholder="Rua Folha, Bairro Rainha!">
                 </div>
-                <div>
+                <div class="container-inputs-address-signup numeroEndereco">
                     <label for="numero_endereco">Numero do Endereço</label>
-                    <input type="number" name="numero_endereco" placeholder="882">
+                    <input class="inputs-style" type="number" name="numero_endereco" placeholder="777">
                 </div>
-                <div>
+                <div class="container-inputs-address-signup complemento">
                     <label for="complemento">Complemento</label>
-                    <input type="text" name="complemento" placeholder="Descendo a escadaria">
+                    <input class="inputs-style" type="text" name="complemento" placeholder="Descendo pela floresta">
                 </div>
-                <div>
+                <div class="container-inputs-address-signup referencia">
                     <label for="referencia">Referência</label>
-                    <input type="text" name="referencia" placeholder="Na frente da padaria">
+                    <input class="inputs-style" type="text" name="referencia" placeholder="Na frente do riacho">
                 </div>
-                <div>
+                <div class="container-inputs-address-signup cidade">
                     <label for="cidade">Cidade</label>
-                    <input type="text" name="cidade">
+                    <input class="inputs-style" type="text" name="cidade">
                 </div>
-                <div>
+                <div class="container-inputs-address-signup estado">
                     <label for="estado">Estado</label>
-                    <select name="estado">
+                    <select class="inputs-style" name="estado">
                         <option value="Acre">Acre</option>
                         <option value="Alagoas">Alagoas</option>
                         <option value="Amapá">Amapá</option>

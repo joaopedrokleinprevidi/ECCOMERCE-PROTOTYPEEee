@@ -33,12 +33,54 @@ main {
   background-color: white;
 }
 
+/* 
+meio tudo doido e colorido
+    var(--green-strength),
+    var(--green-light),
+    var(--yellow-strength),
+    var(--blue-light),
+    var(--blue-strength)
+*/
+/* 
+verde: 
+
+    var(--green-strength),
+    var(--green-light),
+    #769d1b,
+    #8bb52b,
+    #5ca128,
+    #7ebf34,
+    #86ca39,
+    #a5cc4b,
+    #aace55,
+    #b1d265
+*/
+
+/* 
+amarelo :
+    #e6be8a,
+    #e2c299,
+    #e3c7a4,
+    #e4d0ad,
+    #e5d9b8,
+    #e6e2c2,
+    #e7e9cd,
+    #e8f0d8,
+    #e9f6e3,
+    #eafbee
+
+*/
+
 .container-signup-cabeçalho > .material-symbols-outlined {
   color: var(--green-strength);
 }
 
 .container-signup-cabeçalho > h1 {
   margin: 1.5rem;
+  color: var(--green-light);
+  text-shadow: 1px 1px 1px var(--green-light);
+  border-bottom: 0.1rem solid var(--green-light);
+  padding-bottom: 6px;
 }
 
 .container-signup-cabeçalho > h2 {
@@ -51,17 +93,43 @@ main {
   flex-direction: column;
 }
 
+hr {
+  border: 1px solid var(--green-strength);
+}
+
 .sections {
   padding: 2.5rem;
   border-radius: 10px;
   border: 2px solid var(--blue-strength);
   margin-bottom: 1rem;
-  background-color: var(--green-light);
+  color: var(--green-strength);
+  background-color: white;
   transition: 0.3s ease;
 }
 
-input,
-select {
+/* Containers de labels/inputs do container "Dados para Acesso"*/
+.sections > .senha,
+.email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sections > .email > label,
+.sections > .email > input,
+.sections > .senha > label,
+.sections > .senha > input {
+  margin-bottom: 0;
+  margin: 0.7rem;
+}
+
+.sections > .email > input,
+.sections > .senha > input {
+  margin-right: 2rem;
+}
+
+/* Todos Inputs */
+.inputs-style {
   margin-bottom: 1rem;
   margin-right: 0.5rem;
   border-radius: 0.3rem;
@@ -71,8 +139,9 @@ select {
   transition: 0.3s ease;
 }
 
+/* Todos Labels */
 label {
-  margin-bottom: 0.4rem;
+  margin-bottom: 1rem;
   margin-right: 0.5rem;
   margin-left: 0.5rem;
 }
@@ -81,9 +150,16 @@ label {
   margin-bottom: 2rem;
 }
 
-/* .section-auth-signup > .email > .material-symbols-outlined,
-.section-auth-signup > .senha > .material-symbols-outlined {
-} */
+.container-inputs-personal-signup,
+.container-inputs-address-signup {
+  display: grid;
+  grid-template-columns: 150px 200px 400px;
+  align-items: center;
+  /* justify-content: center; */
+
+  /* display: flex;
+  align-items: center; */
+}
 
 .cabeçalho-sections {
   margin-bottom: 2rem;
@@ -112,15 +188,16 @@ label {
   margin-top: 1rem;
   padding: 0.3rem;
   border-radius: 10px;
-  border: 1px solid var(--green-strength);
-  background-color: var(--blue-light);
+  border: 1px solid var(--green-light);
+  background-color: var(--blue-strength);
   color: white;
   cursor: pointer;
   transition: 0.3 ease;
 }
 
 .container-confirm-signup > button:hover {
-  background-color: var(--blue-strength);
+  border: 1px solid var(--green-strength);
+  background-color: var(--blue-light);
   color: var(--text-color-white);
   transition: 0.3s ease;
 }
@@ -128,12 +205,12 @@ label {
 /* hovers */
 
 .sections:hover {
-  background-color: #638415;
+  background-color: #f6ffe3;
   transition: 0.3s ease;
 }
 
-input:hover,
-select:hover {
-  background-color: #ececec;
+.inputs-style:hover {
+  border: 1px solid var(--green-strength);
+  background-color: #dfecc2;
   transition: 0.3s ease;
 }

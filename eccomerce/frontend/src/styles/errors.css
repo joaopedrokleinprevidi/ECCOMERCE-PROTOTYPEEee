@@ -1,0 +1,34 @@
+:root {
+  --text-color-white: #fff;
+  --green-strength: #374e0b;
+  --green-light: #5a7813;
+  --blue-strength: #4d6a92;
+  --blue-light: #348db8;
+  --yellow-strength: #f1c388;
+}
+
+.container-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 3;
+  padding: 0.2rem;
+  margin: 0.2rem;
+  border-radius: 10px;
+  max-width: 45%;
+  /* border: 1px solid red; */
+  /* background-color: var(--blue-strength); */
+}
+
+.error-message {
+  margin-left: 0.5rem;
+  color: var(--green-strength);
+  font-size: 1rem;
+  text-align: center;
+}
+
+.button-error {
+  color: red;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
