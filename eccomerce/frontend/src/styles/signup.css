@@ -93,7 +93,7 @@ amarelo :
   flex-direction: column;
 }
 
-hr {
+.hr-signup {
   border: 1px solid var(--green-strength);
 }
 
@@ -193,10 +193,11 @@ label {
 
 .container-confirm-signup > button {
   margin-top: 1rem;
-  padding: 0.3rem;
+  padding: 0.7rem;
   border-radius: 10px;
-  border: 1px solid var(--green-light);
-  background-color: var(--blue-strength);
+  border: 1px solid var(--blue-strength);
+  background-color: var(--green-light);
+  font-size: 1.1rem;
   color: white;
   cursor: pointer;
   transition: 0.3 ease;

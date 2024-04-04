@@ -31,12 +31,13 @@ function createAndAppendErrorMessage(container, errorMessage) {
 
     setTimeout(() => {
       containerError.remove();
-    }, 7000);
+    }, 4000);
   }
 }
 
 function moveScrollBarToError(container) {
-  container.scrollIntoView({ block: "center", behavior: "smooth" });
+  if (container === document.getElementsByTagName("div"))
+    container.scrollIntoView({ block: "center", behavior: "smooth" });
 }
 
 const errorsOfAcessData = (responseVerifyAcessData) => {
@@ -62,6 +63,17 @@ const errorsOfAcessData = (responseVerifyAcessData) => {
   if (responseVerifyAcessData.includes("O campo 'Email' é obrigatório")) {
     createAndAppendErrorMessage(containerEmail, "O campo 'Email' é requerido.");
     //Mostrar no input "Email" que o campo é obrigatório.
+  }
+
+  if (
+    responseVerifyAcessData.includes(
+      "O campo 'Email' deve conter o caractere '@'"
+    )
+  ) {
+    createAndAppendErrorMessage(
+      containerEmail,
+      "O campo 'Email' deve conter o caractere '@'."
+    );
   }
 
   const containerSenha = document.querySelector(".senha");
@@ -97,6 +109,17 @@ const errorsOfAcessData = (responseVerifyAcessData) => {
     );
     //Mostrar no input "Senha" que o campo é obrigatório.
   }
+
+  if (
+    responseVerifyAcessData.includes(
+      "O campo 'Senha' deve conter no máximo 14 caracteres."
+    )
+  ) {
+    createAndAppendErrorMessage(
+      containerSenha,
+      "O campo 'Senha' deve conter no máximo 14 caracteres."
+    );
+  }
   moveScrollBarToError(containerSenha);
 };
 
@@ -121,6 +144,16 @@ const errorsOfPersonalData = (responseVerifyPersonalData) => {
   if (responseVerifyPersonalData.includes("O campo 'CPF' é obrigatório")) {
     createAndAppendErrorMessage(cpfContainer, "O campo é requerido.");
     //Mostrar no input "CPF" que o campo é obrigatório.
+  }
+  if (
+    responseVerifyPersonalData.includes(
+      "O campo 'CPF' deve conter entre 11 e 14 caracteres."
+    )
+  ) {
+    createAndAppendErrorMessage(
+      cpfContainer,
+      "O campo 'CPF' deve conter entre 11 e 14 caracteres."
+    );
   }
   if (responseVerifyPersonalData.includes("O campo 'Celular' é obrigatório")) {
     createAndAppendErrorMessage(celularContainer, "O campo é requerido.");
@@ -155,6 +188,16 @@ const errorsOfAddressData = (responseVerifyAddressData) => {
     createAndAppendErrorMessage(containerCep, "O campo é requerido.");
     moveScrollBarToError(containerCep);
     //Mostrar no input "CEP" que o campo é obrigatório.
+  }
+  if (
+    responseVerifyAddressData.includes(
+      "O campo 'CEP' deve conter entre 5 e 9 caracteres."
+    )
+  ) {
+    createAndAppendErrorMessage(
+      containerCep,
+      "O campo 'CEP' deve conter entre 5 e 9 caracteres."
+    );
   }
   if (responseVerifyAddressData.includes("O campo 'Endereço' é obrigatório.")) {
     createAndAppendErrorMessage(containerEndereco, "O campo é requerido.");

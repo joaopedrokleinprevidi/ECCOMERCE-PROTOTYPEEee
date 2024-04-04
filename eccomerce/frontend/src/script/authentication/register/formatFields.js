@@ -1,6 +1,5 @@
 const cpfInput = document.querySelector(".cpfInput");
-
-cpfInput.addEventListener("input", formatCPF);
+const telefoneInput = document.querySelector(".telefoneInput");
 
 function formatCPF() {
   let cpf = cpfInput.value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
@@ -10,14 +9,13 @@ function formatCPF() {
   cpfInput.value = cpf;
 }
 
-const telefoneInput = document.querySelector("#telefoneInput");
-
-telefoneInput.addEventListener("input", formatTelefone);
-
 function formatTelefone() {
   let telefone = telefoneInput.value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
   telefone = telefone.slice(0, 11); // Garante que o telefone tenha no máximo 11 caracteres
   telefone = telefone.replace(/(\d{2})(\d)/, "($1) $2"); // Insere os parênteses e o espaço após os primeiros 2 dígitos
-  telefone = telefone.replace(/(\d{5})(\d)/, "$1-$2"); // Insere o hífen após os próximos 5 dígitos
+  telefone = telefone.replace(/(\d{5})(\d)/, "$1-$2"); // Insere o hífen após os último dígitos
   telefoneInput.value = telefone;
 }
+
+cpfInput.addEventListener("input", formatCPF);
+telefoneInput.addEventListener("input", formatTelefone);

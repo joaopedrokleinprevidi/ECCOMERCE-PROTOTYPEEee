@@ -32,7 +32,7 @@
 
     <script type="module" src="../script/authentication/register/authEmailAndPassword.js" defer></script>
     <script type="module" src="../script/authentication/register/errors/verifyData.js" defer></script>
-    <script type="module" src="../script/authentication/register/formatFields.js"></script>
+    <script type="module" src="../script/authentication/register/formatFields.js" defer></script>
     <script type="module" src="../script/authentication/register/errors/showErrors.js" defer></script>
     <script type="module" src="../script/authentication/showErrors/backendErrors.js" defer></script>
 </head>
@@ -61,8 +61,8 @@
                         <li><span class="material-symbols-outlined">login</span><a href="./signUpOrSignIn.html">Entre
                                 ou cadastre-se</a>
                         </li>
-                        <li><span class="material-symbols-outlined">account_circle</span><a href="#">Minha conta</a>
-                        </li>
+                        <li><span class="material-symbols-outlined">account_circle</span><a
+                                href="./myAccount.html">Minha conta</a>
                         <li><span class="material-symbols-outlined">article</span><a href="#">Meus pedidos</a></li>
                         <li><span class="material-symbols-outlined">logout</span><a href="#"
                                 class="button-logout">Sair</a></li>
@@ -144,7 +144,7 @@
                         <span class="material-symbols-outlined">person</span>
                         <p>Dados para acesso</p>
                     </div>
-                    <hr>
+                    <hr class="hr-signup">
                 </div>
                 <div class="email">
                     <div class="container-email">
@@ -184,7 +184,7 @@
                         <span class="material-symbols-outlined">lock</span>
                         <p>Dados pessoais</p>
                     </div>
-                    <hr>
+                    <hr class="hr-signup">
                 </div>
                 <div class="container-inputs-personal-signup nome">
                     <label for="nome_completo">Nome completo</label>
@@ -197,8 +197,8 @@
                 </div>
                 <div class="container-inputs-personal-signup celular">
                     <label for="celular">Celular</label>
-                    <input class="inputs-style" type="tel" name="celular" id="telefoneInput"
-                        placeholder="(54) 99242-3443" max-length="15">
+                    <input class="inputs-style telefoneInput" type="tel" name="celular" placeholder="(54) 99242-3443"
+                        max-length="15">
                 </div>
                 <div class="container-inputs-personal-signup genero">
                     <label for="sexo">Gênero</label>
@@ -220,7 +220,7 @@
                         <span class="material-symbols-outlined">location_on</span>
                         <p>Endereço</p>
                     </div>
-                    <hr>
+                    <hr class="hr-signup">
                 </div>
                 <div class="container-inputs-address-signup cep">
                     <label for="cep">Cep </label>
@@ -229,7 +229,7 @@
                 </div>
                 <div class="container-inputs-address-signup endereco">
                     <label for="endereco">Endereço</label>
-                    <input class="inputs-style" type="text" name="endereco" placeholder="Rua Folha, Bairro Rainha!">
+                    <input class="inputs-style" type="text" name="endereco" placeholder="Bairro Folha, Rua Rainha">
                 </div>
                 <div class="container-inputs-address-signup numeroEndereco">
                     <label for="numero_endereco">Numero do Endereço</label>

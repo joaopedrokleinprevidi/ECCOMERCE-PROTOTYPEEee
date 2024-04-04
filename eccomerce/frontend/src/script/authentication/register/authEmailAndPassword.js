@@ -120,9 +120,9 @@ async function handleRegisterNewUser(accessData, personalData, addressData) {
       cleanFieldsOfForm();
       auth.onAuthStateChanged(async (user) => {
         if (user) {
-          alert("User has been authenticated with sucess");
+          alert("O usuário foi autenticado com sucesso. O usuário está seguro");
 
-          window.location.href = "index.html";
+          window.location.href = "myAccount.html";
         }
       });
     })

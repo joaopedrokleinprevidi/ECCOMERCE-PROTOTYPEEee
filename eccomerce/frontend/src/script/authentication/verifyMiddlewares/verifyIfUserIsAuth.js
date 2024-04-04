@@ -9,8 +9,6 @@ const verifyIfUserIsAuth = async () => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         try {
-          console.log(auth);
-          console.log(user);
           const getAtualToken = await user.getIdToken(
             /*forceRefresh */
             true
@@ -21,14 +19,6 @@ const verifyIfUserIsAuth = async () => {
             atributes: user,
             token: cookies.getCookie("token"),
           };
-          console.log(
-            "atributos do usuario aqui em verifyIfUserIsAuth: ",
-            userParams.atributes
-          );
-          console.log(
-            "token usuario aqui em verifyIfUserIsAuth: ",
-            userParams.token
-          );
           resolve(userParams);
         } catch (error) {
           console.error(
@@ -41,7 +31,7 @@ const verifyIfUserIsAuth = async () => {
         console.error(
           "Erro ao verificar se o usuário existe em verifyIfUserIsAuth."
         );
-        // window.location.href = "signUpOrSignIn.html";
+        window.location.href = "signUpOrSignIn.html";
         reject();
       }
     });

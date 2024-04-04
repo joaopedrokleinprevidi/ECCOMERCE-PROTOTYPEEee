@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+:root {
+  --text-color-white: #fff;
+  --green-strength: #374e0b;
+  --green-light: #5a7813;
+  --blue-strength: #4d6a92;
+  --blue-light: #348db8;
+  --yellow-strength: #f1c388;
+}
+
+/* Pai de todos */
+.container-my-account {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Pai dos títulos principais*/
+.container-my-account-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.5rem;
+  margin: 2rem;
+  color: var(--green-strength);
+  border-radius: 10px;
+  background-color: white;
+}
+
+.container-my-account-header > h1 {
+  text-shadow: 1px 1px 1px var(--green-light);
+  margin-bottom: 1rem;
+  padding-bottom: 6px;
+  color: var(--green-light);
+  border-bottom: 0.1rem solid var(--green-light);
+  font-size: 2rem;
+}
+
+.container-my-account-header > .material-symbols-outlined {
+  color: var(--green-strength);
+}
+
+.container-my-account-header > h2 {
+  font-size: 1rem;
+  margin: 0.2rem;
+}
+
+/* Pai dos dois containers de dados */
+.datas-containers-my-account {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 400px 400px;
+  grid: auto;
+  grid-gap: 1rem;
+  padding: 1rem;
+  width: 75vw;
+}
+
+/* Pai de cada container dos dados */
+.containers-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  padding: 1.3rem;
+  border-radius: 10px;
+  border: 2px solid var(--blue-strength);
+  transition: 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-container > .title-container {
+  font-size: 1.4rem;
+}
+
+.hr-my-account {
+  margin-top: 0.3rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--green-strength);
+}
+
+.container-data > .datas {
+  padding-bottom: 1rem;
+}
+
+.buttons-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttons-actions > button {
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid var(--blue-strength);
+  background-color: var(--green-light);
+  color: white;
+  cursor: pointer;
+  transition: 0.3 ease;
+}
+
+.buttons-actions > button:hover {
+  border: 1px solid var(--green-strength);
+  background-color: var(--blue-light);
+  color: var(--text-color-white);
+  transition: 0.3s ease;
+}
+
+.buttons-actions > .button-alterar-senha {
+  border: 1px solid var(--blue-strength);
+  background-color: var(--green-light);
+}
+
+.inputs-edit-profile {
+  border-radius: 0.3rem;
+  border: 1px solid var(--green-strength);
+  margin-left: 0.4rem;
+  padding: 0.4rem;
+  text-shadow: 1px 1px 1px solid #000;
+  transition: 0.3s ease;
+}
+
+.inputs-edit-profile:hover {
+  border: 1px solid var(--green-strength);
+  background-color: #dfecc2;
+  transition: 0.3s ease;
+}
+
+.containers-data:hover {
+  background-color: #faffeb;
+  transition: 0.3s ease;
+}
