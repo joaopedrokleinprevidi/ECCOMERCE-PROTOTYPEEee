@@ -33,44 +33,6 @@ main {
   background-color: white;
 }
 
-/* 
-meio tudo doido e colorido
-    var(--green-strength),
-    var(--green-light),
-    var(--yellow-strength),
-    var(--blue-light),
-    var(--blue-strength)
-*/
-/* 
-verde: 
-
-    var(--green-strength),
-    var(--green-light),
-    #769d1b,
-    #8bb52b,
-    #5ca128,
-    #7ebf34,
-    #86ca39,
-    #a5cc4b,
-    #aace55,
-    #b1d265
-*/
-
-/* 
-amarelo :
-    #e6be8a,
-    #e2c299,
-    #e3c7a4,
-    #e4d0ad,
-    #e5d9b8,
-    #e6e2c2,
-    #e7e9cd,
-    #e8f0d8,
-    #e9f6e3,
-    #eafbee
-
-*/
-
 .container-signup-cabeçalho > .material-symbols-outlined {
   color: var(--green-strength);
 }
@@ -99,9 +61,9 @@ amarelo :
 
 .sections {
   padding: 2.5rem;
+  margin-bottom: 1rem;
   border-radius: 10px;
   border: 2px solid var(--blue-strength);
-  margin-bottom: 1rem;
   color: var(--green-strength);
   background-color: white;
   transition: 0.3s ease;
@@ -135,6 +97,11 @@ amarelo :
   margin-right: 2rem;
 }
 
+.sections > .email > input:focus,
+.sections > .senha > input:focus {
+  border: 1px solid var(--blue-strength);
+  outline: 1px solid var(--blue-strength);
+}
 /* Todos Inputs */
 .inputs-style {
   margin-bottom: 1rem;
@@ -144,6 +111,11 @@ amarelo :
   padding: 0.3rem;
   text-shadow: 1px 1px 1px solid #000;
   transition: 0.3s ease;
+}
+
+.inputs-style:focus {
+  border: 1px solid var(--blue-strength);
+  outline: 1px solid var(--blue-strength);
 }
 
 /* Todos Labels */
@@ -204,8 +176,8 @@ label {
 }
 
 .container-confirm-signup > button:hover {
-  border: 1px solid var(--green-strength);
-  background-color: var(--blue-light);
+  border: 1px solid var(--green-light);
+  background-color: var(--green-strength);
   color: var(--text-color-white);
   transition: 0.3s ease;
 }
@@ -218,7 +190,6 @@ label {
 }
 
 .inputs-style:hover {
-  border: 1px solid var(--green-strength);
   background-color: #dfecc2;
   transition: 0.3s ease;
 }
