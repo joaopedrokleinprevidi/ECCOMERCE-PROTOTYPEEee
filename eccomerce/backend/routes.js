@@ -7,6 +7,12 @@ const authMiddlewares = require("./src/middlewares/authMiddlewares.js");
 // router.get("/users", authMiddlewares.verifyUser, usersControllers.getAllUsers);
 
 router.get(
+  "/users/updateProfile/:email",
+  authMiddlewares.verifyUser,
+  usersControllers.getUserByEmail
+);
+
+router.get(
   "/users/editProfile/:uid",
   authMiddlewares.verifyUser,
   usersControllers.getDataOfUserByUid

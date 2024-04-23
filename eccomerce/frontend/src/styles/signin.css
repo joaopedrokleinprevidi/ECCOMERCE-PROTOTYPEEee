@@ -5,6 +5,26 @@
   margin: 0;
 }
 
+@font-face {
+  font-family: "ContrailOne";
+  src: url("../files/fonts/ContrailOne-Regular_texto.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gagalin-Regular";
+  src: url("../files/fonts/Gagalin-Regular_destaque.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("../files/fonts/Montserrat-Regular_titulo.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Sacramento-Regular";
+  src: url("../files/fonts/Sacramento-Regular_produtos.ttf") format("truetype");
+}
+
 :root {
   --text-color-white: #fff;
   --green-strength: #374e0b;
@@ -12,6 +32,11 @@
   --blue-strength: #4d6a92;
   --blue-light: #348db8;
   --yellow-strength: #f1c388;
+
+  --font-titulo: "ContrailOne";
+  --font-destaque-text: "Gagalin-Regular";
+  --font-texto-normal: "Montserrat-Regular";
+  --font-produtos-name: "Sacramento-Regular";
 }
 
 main {
@@ -53,13 +78,14 @@ main {
 .cabeçalho-identificacao > h2 {
   font-size: 1rem;
   margin: 0.2rem;
+  font-family: var(--font-texto-normal);
 }
 
 .containers-auth {
   margin: 1rem;
   padding: 1rem;
   border-radius: 10px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   border: 2px solid var(--blue-strength);
   color: var(--green-strength);
   background-color: white;
@@ -78,6 +104,7 @@ main {
   display: flex;
   align-items: center;
   font-size: 1.1rem;
+  font-family: var(--font-texto-normal);
 }
 
 .containers-auth > hr {
@@ -98,6 +125,7 @@ form {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-family: var(--font-texto-normal);
 }
 
 /* labels */
@@ -137,6 +165,7 @@ form {
   border-radius: 0.5rem;
   border: 1px solid var(--blue-strength);
   background-color: var(--green-light);
+  font-family: var(--font-texto-normal);
 
   color: white;
   cursor: pointer;

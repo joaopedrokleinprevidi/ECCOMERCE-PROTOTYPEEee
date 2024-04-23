@@ -1,4 +1,4 @@
-function createAndAppendErrorMessage(container, errorMessage) {
+const createAndAppendErrorMessage = (container, errorMessage) => {
   console.log(container);
   if (container.querySelector(".error-message")) {
     //Se já existir uma mensagem de erro no campo atual, substitui o erro antigo pelo novo
@@ -33,7 +33,7 @@ function createAndAppendErrorMessage(container, errorMessage) {
       containerError.remove();
     }, 4000);
   }
-}
+};
 
 function moveScrollBarToError(container) {
   if (container === document.getElementsByTagName("div"))
@@ -244,4 +244,6 @@ export default {
   errorsOfPersonalData,
   errorsOfAddressData,
   errorsOfAcceptTerms,
+  createAndAppendErrorMessage,
+  moveScrollBarToError,
 };

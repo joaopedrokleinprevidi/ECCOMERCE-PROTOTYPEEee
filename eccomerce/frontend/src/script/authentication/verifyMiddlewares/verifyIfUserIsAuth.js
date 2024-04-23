@@ -19,6 +19,7 @@ const verifyIfUserIsAuth = async () => {
             atributes: user,
             token: cookies.getCookie("token"),
           };
+          console.log("token: ", userParams.token);
           resolve(userParams);
         } catch (error) {
           console.error(

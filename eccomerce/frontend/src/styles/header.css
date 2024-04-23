@@ -5,6 +5,26 @@
   margin: 0;
 }
 
+@font-face {
+  font-family: "ContrailOne";
+  src: url("../files/fonts/ContrailOne-Regular_texto.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gagalin-Regular";
+  src: url("../files/fonts/Gagalin-Regular_destaque.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("../files/fonts/Montserrat-Regular_titulo.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Sacramento-Regular";
+  src: url("../files/fonts/Sacramento-Regular_produtos.ttf") format("truetype");
+}
+
 :root {
   --text-color-white: #fff;
   --green-strength: #374e0b;
@@ -12,10 +32,16 @@
   --blue-strength: #4d6a92;
   --blue-light: #348db8;
   --yellow-strength: #f1c388;
+
+  --font-normal-text: "ContrailOne";
+  --font-destaque-text: "Gagalin-Regular";
+  --font-titulo: "Montserrat-Regular";
+  --font-produtos-name: "Sacramento-Regular";
 }
 
 body {
   overflow-x: hidden;
+  padding-top: 125px;
 }
 
 main {
@@ -33,15 +59,18 @@ header {
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  background-color: var(--green-strength);
 }
 
 .container-header {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 125px;
   width: 100%;
+  height: 125px;
+  background-color: var(--green-strength);
 }
 
 .logo-folha-rainha {
@@ -66,6 +95,8 @@ header {
   padding: 0.5rem;
   border-radius: 15px;
   border: 2px solid var(--yellow-strength);
+  font-family: var(--font-produtos-name);
+  font-size: 1.6rem;
 }
 
 .header-sections {

@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "ContrailOne";
+  src: url("../files/fonts/ContrailOne-Regular_texto.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gagalin-Regular";
+  src: url("../files/fonts/Gagalin-Regular_destaque.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("../files/fonts/Montserrat-Regular_titulo.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Sacramento-Regular";
+  src: url("../files/fonts/Sacramento-Regular_produtos.ttf") format("truetype");
+}
+
+:root {
+  --text-color-white: #fff;
+  --green-strength: #374e0b;
+  --green-light: #5a7813;
+  --blue-strength: #4d6a92;
+  --blue-light: #348db8;
+  --yellow-strength: #f1c388;
+
+  --font-titulo: "ContrailOne";
+  --font-destaque-text: "Gagalin-Regular";
+  --font-texto-normal: "Montserrat-Regular";
+  --font-produtos-name: "Sacramento-Regular";
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+footer {
+  width: 100%;
+  background-color: var(--green-strength);
+  padding: 1rem;
+}
+
+.footer-section {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 2rem;
+  font-family: var(--font-texto-normal);
+}
+
+.sobre {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.p-footer-sobre {
+  text-align: center;
+  color: white;
+  line-height: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.bandeira {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bandeira > p {
+  margin: 0.5rem;
+}
+
+.grid-colorido {
+  background-color: var(--green-light);
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.aceitamos-pagamento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.2rem;
+}
+
+.aceitamos-pagamento > p {
+  margin-bottom: 0.3rem;
+}
+
+.logotipo-pagamentos {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-folha-rainha-footer {
+  width: 150px;
+  height: 150px;
+}
+
+.h1-footer-title {
+  color: white;
+  margin: 1rem;
+  text-align: center;
+  font-family: var(--font-titulo);
+}
+
+ul > .li-footer {
+  list-style: none;
+}
+
+.li-footer > a {
+  text-decoration: none;
+  color: white;
+  padding-left: 1rem;
+  line-height: 1.8rem;
+  font-size: 1.1rem;
+}
+
+.li-footer > a:hover {
+  text-decoration: underline;
+}
+
+.li-contact {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 0.5rem;
+  padding: 5px 0px;
+}
+
+.li-contact > .material-symbols-outlined {
+  color: black;
+}
+
+.li-contact > .p-footer-contact {
+  color: white;
+  padding-left: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.p-direitos {
+  text-align: center;
+  color: var(--green-light);
+  font-family: var(--font-texto-normal);
+}
+
+/* Aplicando um margin ao main, para ele se adaptar melhor ao footer.. Não ficar algo tão seco, tipo... COnteúdo, PA , footer kkkk*/
+main {
+  padding-bottom: 6rem;
+}

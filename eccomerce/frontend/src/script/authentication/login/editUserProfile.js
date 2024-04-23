@@ -78,15 +78,12 @@ const receiveDataInProfileEditFields = async () => {
 const startEditCadastro = async () => {
   const response = await getDataOfUser();
 
-  console.log("dados do usuario, deve conter response.nomeCompleto", response);
-  console.log(response.nomeCompleto);
-
   const confirmEmail = document.createElement("p");
   confirmEmail.classList.add("datas", "data-confirmEmail", "confirmEmail");
 
   containerPersonalData.insertBefore(
     confirmEmail,
-    containerPersonalData.children[3].nextSibling
+    containerPersonalData.children[4].nextSibling
   );
 
   //Crio inputs para iniciar edição de dados de CADASTRO quando necessário
@@ -107,7 +104,6 @@ const startEditCadastro = async () => {
 };
 
 const formatCPFandTelefone = () => {
-  console.log("rodo");
   const cpfInput = document.querySelector(".cpfInput");
   cpfInput.addEventListener("input", () => {
     let cpf = cpfInput.value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
@@ -124,7 +120,6 @@ const formatCPFandTelefone = () => {
     telefone = telefone.replace(/(\d{5})(\d)/, "$1-$2"); // Insere o hífen após os último dígitos
     telefoneInput.value = telefone;
   });
-  console.log("finalizo");
 };
 
 const startEditAddress = async () => {
@@ -196,9 +191,41 @@ const getUpdatedDataOfUserAfterFillingEditAddress = async () => {
   return updatedDataOfUser;
 };
 
+const verifyIfEmailExistsBeforeSave = async () => {
+  const user = await verifyIfUserIsAuth();
+  const userToken = user.token;
+  const email = document.querySelector("#emailEditProfile").value;
+  console.log(email)
+
+   const responseFetch = await fetch(`http://localhost:3000/users/updateProfile/${email}`, {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${userToken}`,
+    },
+  }).then((response) => {
+      return response.json()
+  }).catch((error) => {
+    console.error("erro ao tentar verificar se o email existe: ",error);
+  });
+
+  return responseFetch;
+};
+
+// const maluquise = async () => {
+//   if(cadastroMode){
+//     const updatedDataOfUser = await getUpdatedDataOfUserAfterFillingEditCadastro();
+//     await checkChangesMadeByUsersForErrors(updatedDataOfUser)
+//   }
+//   if (addressMode) {
+//     const updatedDataOfUser = await getUpdatedDataOfUserAfterFillingEditAddress();
+//     await checkChangesMadeByUsersForErrors(updatedDataOfUser)
+//   }
+
+// }
+
 const checkChangesMadeByUsersForErrors = async (cadastroMode, addressMode) => {
   let updatedDataOfUser = "";
-  console.log("Rodou a função de VERIFICAÇÃO.");
 
   //Pego os dados atualizados do usuário, utilizando o sistema criado para entender qual dado está sendo editado
   if (cadastroMode) {
@@ -207,9 +234,6 @@ const checkChangesMadeByUsersForErrors = async (cadastroMode, addressMode) => {
   if (addressMode) {
     updatedDataOfUser = await getUpdatedDataOfUserAfterFillingEditAddress();
   }
-  console.log("dados atualizados do usuário: ", updatedDataOfUser);
-
-  console.log("Está iniciando função de verificar mudanças no cadastro.");
 
   const responseVerifyAcessData =
     verifyFields.verifyAcessData(updatedDataOfUser);
@@ -238,25 +262,48 @@ const checkChangesMadeByUsersForErrors = async (cadastroMode, addressMode) => {
     responseVerifyPersonalData === true &&
     responseVerifyAddressData === true
   ) {
-    console.log("Sem erros, ok.");
-    await saveChangesOfEditInBackEnd(updatedDataOfUser);
-    await receiveDataInProfileEditFields();
 
     if (cadastroMode) {
-      //Função que atualiza o Email de acesso no Firebase Authentication.
-      changeEmail(updatedDataOfUser.email);
+      const containerData = document.querySelector('.container-data');
+      try {
+         const response = await verifyIfEmailExistsBeforeSave();
+         if (response === null) {
+           try {
+             const emailChanged = await changeEmail(updatedDataOfUser.email);
+             console.log("emailChanged: ", emailChanged);
+             if (emailChanged) {
+               console.log("Email de acesso alterado com sucesso.");
+               await saveChangesOfEditInBackEnd(updatedDataOfUser);
+               await receiveDataInProfileEditFields();
+               return true;
+             }
+           } catch (error) {
+             console.log("show errors");
+             console.log(error, "<<< erro criado in change email");
+             showErrors.createAndAppendErrorMessage(containerData.children[4], "Email já existe.");
+           }
+         } else {
+           showErrors.createAndAppendErrorMessage(
+             containerData.children[4],
+             "Email já existe"
+           );
+         }
+      } catch (error) {
+         console.error("Erro ao verificar se o email existe antes de salvar:", error);
+      }
+     }
+
+    if (addressMode) {
+      await saveChangesOfEditInBackEnd(updatedDataOfUser);
+      await receiveDataInProfileEditFields();
+      return true;
     }
 
-    return true;
   }
 };
 
 const saveChangesOfEditInBackEnd = async (updatedDataOfUser) => {
   try {
-    console.log(
-      "Dados atualizados e verificados vindos do formulário: ",
-      updatedDataOfUser
-    );
     const user = await verifyIfUserIsAuth();
     const userToken = user.token;
     await fetch("http://localhost:3000/users/editProfile", {
@@ -285,7 +332,7 @@ const toggleEditModeCadastro = async () => {
     //Essa função abaixo verifica os dados e chama a função que atualiza no Back-End.
     if ((await checkChangesMadeByUsersForErrors(true, false)) === true) {
       console.log("Iniciou verificação e concluiu edição");
-      containerPersonalData.removeChild(containerPersonalData.children[4]); //Removendo o campo "Confirmar Email" que deve existir apenas na edição de CADASTRO.
+      containerPersonalData.removeChild(containerPersonalData.children[5]); //Removendo o campo "Confirmar Email" que deve existir apenas na edição de CADASTRO.
       buttonEditCadastro.innerText = "Editar Cadastro";
       isEditingCadastro = false;
     } else {

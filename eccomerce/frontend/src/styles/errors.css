@@ -9,6 +9,7 @@
 
 .container-error {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: left;
   grid-column: 3;
@@ -23,7 +24,7 @@
 .error-message {
   margin-left: 0.5rem;
   color: var(--green-strength);
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-align: center;
 }
 

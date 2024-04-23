@@ -10,8 +10,7 @@ const getAllUsers = async () => {
   return users;
 };
 
-const getUserByEmail = async (user) => {
-  const { email } = user;
+const getUserByEmail = async (email) => {
   try {
     const snapshot = await admin
       .firestore()
@@ -27,7 +26,7 @@ const getUserByEmail = async (user) => {
     return snapshot.docs[0].data();
   } catch (error) {
     console.error("Erro ao obter o usuário: ", error);
-    return null;
+    return false;
   }
 };
 

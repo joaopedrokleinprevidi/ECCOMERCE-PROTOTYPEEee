@@ -6,7 +6,8 @@ const getAllUsers = async (_request, response) => {
 };
 
 const getUserByEmail = async (request, response) => {
-  const user = await usersModel.getUserByEmail(request.body);
+  const email = request.params;
+  const user = await usersModel.getUserByEmail(email);
   return response.status(200).json(user);
 };
 
