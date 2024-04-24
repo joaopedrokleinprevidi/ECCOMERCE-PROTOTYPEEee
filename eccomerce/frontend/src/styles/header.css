@@ -7,22 +7,22 @@
 
 @font-face {
   font-family: "ContrailOne";
-  src: url("../files/fonts/ContrailOne-Regular_texto.ttf") format("truetype");
+  src: url("../assets/fonts/ContrailOne-Regular_texto.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Gagalin-Regular";
-  src: url("../files/fonts/Gagalin-Regular_destaque.otf") format("opentype");
+  src: url("../assets/fonts/Gagalin-Regular_destaque.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Montserrat-Regular";
-  src: url("../files/fonts/Montserrat-Regular_titulo.ttf") format("truetype");
+  src: url("../assets/fonts/Montserrat-Regular_titulo.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Sacramento-Regular";
-  src: url("../files/fonts/Sacramento-Regular_produtos.ttf") format("truetype");
+  src: url("../assets/fonts/Sacramento-Regular_produtos.ttf") format("truetype");
 }
 
 :root {
@@ -45,7 +45,7 @@ body {
 }
 
 main {
-  background-image: url("../files/images/background/folhas_14.jpg");
+  background-image: url("../assets/images/background/folhas_fundo.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
